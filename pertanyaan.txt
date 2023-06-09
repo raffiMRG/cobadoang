@@ -1,0 +1,16 @@
+multiple 
+https://www.w3schools.com/tags/att_input_multiple.asp
+
+
+directory="" 
+
+
+
+webkitdirectory="" 
+
+moxdirectory=""
+
+
+https://www.w3schools.com/php/php_file_upload.asp
+https://php.watch/articles/php81-directory-uploads
+https://fahmidasclassroom.com/how-to-upload-folder-using-html-and-php/

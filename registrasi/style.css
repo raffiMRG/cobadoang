@@ -1,0 +1,45 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+
+}
+li{
+    list-style: none;
+}
+
+.main{
+    width: 30%;
+    height: 350px;
+    background-color: green;
+
+}
+
+.main{
+    margin: auto;
+
+}
+
+input{
+    font-size: 18px;
+    width: 350px;
+    text-align: center;
+    display: block;
+    margin: auto;
+}
+
+
+button{
+    display: block;
+    margin: auto;
+    font-size: 18px;
+    width: 100px;
+    height: 40px;
+    border: 2px solid black;
+    
+}
