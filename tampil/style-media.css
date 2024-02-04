@@ -1,0 +1,12 @@
+@media (max-width: 720px){
+    .property{
+        width: 100%;
+        height: auto;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .container{
+        width: 100%;
+    }   
+}

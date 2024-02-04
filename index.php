@@ -40,30 +40,47 @@ $datas = query("SELECT * FROM list3 ORDER BY id DESC LIMIT $awalData, $JumlahDat
         
     </style>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-media.css">
     <script src="js/jquery-3.6.3.min.js"></script>
     <script src="js/script.js"></script>
 </head>
 <body>
-    <a href="">
-    <h1 style="font-family: sans-serif; color: white;">HOME</h1>
-    </a>
-    <!-- search -->
-    <form action="" method="post">
-        <input type="text" name="keyword" id="keyword" placeholder="cari...">
-    </form>
-    <img src="js/img/loading2.gif" class="loading2" style="width: 30px; position:fixed; top: 30px; left: 175px; display: none;">
 
-    <a href="logout/logout.php">
-        <div class="logout">LOGOUT</div>
-    </a>
-    <a href="tambah/tambah.php">
-        <div class="tambah">TAMBAH</div>
-    </a>
+<!-- NAV START -->
+<div class="navbar">
+        <div class="icon"><a href="<?= $_SERVER["PHP_SELF"] ?>" style="text-decoration: none;">THIS <span>HOME</span></a></div>
+        <div class="nav">
+            <a href="tambah/tambah.php">
+                <div class="tambah">TAMBAH</div>
+            </a>
+            <a href="status/status.php">
+                <div class="status">STATUS</div>
+            </a>
+            <a href="logout/logout.php">
+                <div class="logout">LOGOUT</div>
+            </a>
+            <form action="" method="post">
+                <input type="text" name="keyword" id="keyword" placeholder="cari..." required>
+                <button type="submit" class="submit">submit</button>
+            </form>
+            <img src="js/img/loading2.gif" class="loading2">
+            <!-- <a class="submit">SUBMIT</a> -->
+        </div>
+        <a id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+    </div>
+<!-- NAV END -->
 
+<!-- MAIN START -->
 <!-- tampilkan data di depan -->
 
     <!-- masuk dulu ke dalam judul -->
-    <div class="main" id="main">    
+    <div class="main" id="main">
+    
         <?php foreach( $datas as $data) :  ?>
             <!-- pilih isi folder dengan index pertama  -->
             <?php 
@@ -76,14 +93,19 @@ $datas = query("SELECT * FROM list3 ORDER BY id DESC LIMIT $awalData, $JumlahDat
             <div class="container">
                 <a href="tampil/tampil.php?id=<?= $id ?>">    
                     <img src="../new/<?= $data["judul"] ?>/<?= $thumbnail ?>" class="img">
+                    <!-- <img src="../asd.jpg" class="img"> -->
                     <div class="judul"><p><?= $data["judul"] ?></p></div>
                 </a>    
             </div>
         <?php endforeach ;  ?>
-</div>
-<div class="navPage">
+    </div>
+    <div class="navPage">
             <?php if($halamanAktif > 1) : ?>
-                <a href="?page=<?= $halamanAktif -1 ?>">&laquo;</a>
+                <a href="?page=<?= $halamanAktif -1 ?>">
+                    <div class="pointerBtn">
+                        &laquo;
+                    </div>
+                </a>
             <?php endif; ?>
             <?php for($i = 1; $i <= $jumlahHalaman; $i++) : ?>
                 <?php if( $i == $halamanAktif ) : ?>
@@ -93,9 +115,19 @@ $datas = query("SELECT * FROM list3 ORDER BY id DESC LIMIT $awalData, $JumlahDat
                 <?php endif; ?>
             <?php endfor; ?>
             <?php if($halamanAktif < $jumlahHalaman) : ?>
-                <a href="?page=<?= $halamanAktif +1 ?>">&raquo;</a>
+                <a href="?page=<?= $halamanAktif +1 ?>">
+                    <div class="pointerBtn">
+                        &raquo;
+                    </div>
+                </a>
             <?php endif; ?>
         </div>
+    <div class="footer">
+        <div class="quote">
+            <p>- _ -</p>
+        </div>
     </div>
+
+    <script src="js/style.js"></script>
 </body>
 </html>

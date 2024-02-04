@@ -22,6 +22,7 @@ $pages = scandir("../../new/$judul");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-media.css">
 </head>
 <body>
     <div class="main" style="width: 100%; background-color: grey; align-items: center;">
@@ -43,14 +44,16 @@ $pages = scandir("../../new/$judul");
                 <a href="gendre/index.php?gendre=<?= $gendre?>"><?= $gendre ?></a>
                 <?php endforeach; ?>
             </p>
+            <p>Page : <?= count($pages) -2 ?></p>
         </div>
-
-        <?php foreach( $pages as $page ) : ?>
-            <?php if($page === ".." || $page === ".") : ?>
-                <?php continue; ?>
-            <?php endif ; ?>
-            <img src="../../new/<?= $judul?>/<?= $page ?>" style="width: 700px; display: block; margin: auto;">    
-        <?php endforeach; ?>
+        <div class="container">
+            <?php foreach( $pages as $page ) : ?>
+                <?php if($page === ".." || $page === ".") : ?>
+                    <?php continue; ?>
+                <?php endif ; ?>
+                <img class="image" src="../../new/<?= $judul?>/<?= $page ?>">    
+            <?php endforeach; ?>
+        </div>
     </div>
 </body>
 </html>

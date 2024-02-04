@@ -6,31 +6,118 @@ body{
     background-color: rgb(17, 17, 17);
 
 }
+
+.navbar{
+    width: 100%;
+    height: 50px;
+    /* background-color: blue; */
+    background-image: linear-gradient(#272727, #222222);
+    position: fixed;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    z-index: 10;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    /* margin-bottom: 10vh; */
+}
+
+span{
+    color: #7a7a7a;
+}
+
+.nav{
+    margin-left: 30vw;
+    width: 35vw;
+    /* background-color: salmon; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav > a{
+    text-decoration: none;
+}
+
+/* HAMBURGER */
+a#hamburger{
+    position: relative;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    /* background-color: #fff; */
+}
+
+a#hamburger span {
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    transition: 0.2s all ease;
+}
+
+a#hamburger span:nth-child(1) {
+    transform: translateY(-12px);
+}
+
+a#hamburger span:nth-child(2) {
+    transform: translateY(12px);
+}
+
+a#hamburger:hover span:nth-child(1) {
+    transform: translateY(-17px);
+}
+
+a#hamburger:hover span:nth-child(2) {
+    transform: translateY(17px);
+}
+
+/* active */
+a#hamburger.active span:nth-child(1) {
+    transform: translateY(-50px);
+    opacity: 0;
+}
+
+a#hamburger.active span:nth-child(2) {
+    transform: translateY(50px);
+    opacity: 0;
+}
+
+a#hamburger span:nth-child(3),
+a#hamburger span:nth-child(4) {
+    transform: rotate(0deg);
+}
+
+a#hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+a#hamburger.active span:nth-child(4) {
+    transform: rotate(45deg);
+}
+
+/* MAIN */
 .main{
-    /* width: 1210px;  */
+    /* height: 100%;  */
     width: 90%; 
     height: 1400px;
     background-color: rgb(32, 32, 32);
-    margin: auto;
-
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 .container{
-    /* overflow: hidden;
     width: 222px;
     height: 320px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    float: left; */
-    width: 222px;
-    height: 320px;
-    /* background-color: grey; */
-    margin: auto;
-    justify-content: center;
-    align-items: center;
+    /* margin: auto; */
+    /* justify-content: center;
+    align-items: center; */
     overflow: hidden;
-    float: left;
     padding: 10px;
 }
 .img{
@@ -77,53 +164,54 @@ a{
     font-size: 16px;
     font-family: sans-serif;
 }
+.nav > a:hover{
+    font-size: 18px;
+    background-color: rgba(84, 87, 90, 0.945);;
+}
 
 p{
     margin: auto;
 }
 
-.tambah{
-    width: 100px;
-    height: 40px;
-    background-color: rgb(82, 15, 15);
-    color: white;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: center;
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: 100px;
-    text-decoration: none;
-    line-height: 40px;
+.loading2{
+    width: 30px; 
+    position:fixed; 
+    top: 10px; 
+    right: 50px; 
+    display: none;
 }
-.logout{
-    width: 100px;
-    height: 40px;
-    background-color: rgb(180, 25, 25);
-    color: white;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: center;
-    display: block;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    text-decoration: none;
-    line-height: 40px;
+
+.submit{
+    cursor: pointer;
+    /* background-color: #f3f3; */
 }
 
 .navPage{
-    display: block;
-    position: relative;
-    bottom: 0px;
-    left: 30%;
-    /* align-items: center; */
-    /* margin: auto; */
-    width: 470px;
-    height: 50px;
-    /* background-color: blue; */
-    z-index: 10;
-    bottom: 0px;
-    /* text-align: center; */
+    width: 50vw;
+    margin: auto;
+}
+
+.logout{
+
+}
+
+.pointerBtn{
+    background-color: #222222ab;
+    width: 100%;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.pointerBtn:hover{
+    background-color: #494949ab;
+}
+
+.footer{
+    height: 150px;
+    width: 100%;
+    background-image: linear-gradient(#222222ab, #030303ab);
 }

@@ -3,7 +3,7 @@ require '../../functions/functions.php';
 
 $keyword = $_GET["keyword"];
 
-$datas = query("SELECT * FROM list3 WHERE judul LIKE '%$keyword%' OR chapter LIKE '%$keyword%' ORDER BY id DESC");
+$datas = query("SELECT * FROM list3 WHERE judul LIKE '%$keyword%' ORDER BY id DESC");
 // $datas = query("SELECT * FROM list2");
 
 ?>
