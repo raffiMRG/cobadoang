@@ -1,0 +1,11 @@
+@media (max-width: 720px){
+    .main{
+        display: grid;
+        place-items: center;
+        width: 100%;
+    }
+
+    input{
+        width: 95%;   
+    }
+}

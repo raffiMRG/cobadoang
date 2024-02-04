@@ -1,0 +1,21 @@
+class: container 
+
+/* overflow: hidden;
+    width: 222px;
+    height: 320px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left; */
+    width: 222px;
+    height: 320px;
+    /* display: block; */
+    /* background-color: grey; */
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    float: left;
+    padding: 10px;
+    background-color: blueviolet;

@@ -34,6 +34,7 @@ if(isset($_POST["login"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-media.css">
 </head>
 <body>
     
@@ -45,25 +46,18 @@ if(isset($_POST["login"])){
         <?php if(isset($error)) : ?>
             <p style="color: red; font-style: italic;">username / password yang di masukan salah</p>
         <?php endif; ?>
-    <form action="" method="post">
-        <ul>
-            <li>
+        <form action="" method="post">
+            <div class="input">
                 <input type="text" name="username" id="username" placeholder="Username" required>
-            </li>
-        </ul>
-        <ul>    
-            <li>
+            </div>
+            <div class="input">
                 <input type="password" name="password" id="password" placeholder="Password"required>
-            </li>
-        </ul>
-        <ul>
-            <li>
+            </div>
+            <div class="input">
                 <button type="submit" name="login">LOGIN</button>
-                <a href="../registrasi/registrasi.php"><div class="regis">DAFTAR</div></a>
-            </li>
-        </ul>
-        
-    </form>
+                <!-- <a href="../registrasi/registrasi.php"><div class="regis">DAFTAR</div></a> -->
+            </div>
+        </form>
     </div>
 
 </body>
