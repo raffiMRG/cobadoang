@@ -1,12 +1,4 @@
 <?php 
-require '../functions/loadEnv.php';
-loadEnv('../.env');
-$db_host = getenv('DB_HOST');
-$db_user = getenv('DB_USER');
-$db_pass = getenv('DB_PASS');
-$db_name = getenv('DB_NAME');
-// echo $db_name;
-
 session_start();
 
 if(!isset($_SESSION["login"])){
@@ -16,7 +8,8 @@ if(!isset($_SESSION["login"])){
 
 // =====================================
 // ============ SET PROPERTY & MTHOD ===============
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+
+$conn = mysqli_connect("localhost", "root", "", "manga");
 
 function select($keyword){
     // var_dump($keyword);
@@ -25,40 +18,23 @@ function select($keyword){
     return mysqli_query($conn, $query);
 }
 
-// ===========================================
+function scan_dir($dir){
+    $ignored = array('.', '..', '.svn', '.htaccess');
 
-function callAPI($method, $url, $data = false){
-  $curl = curl_init();
-  curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-  if ($data) curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+    $files = array();    
+    foreach (scandir($dir) as $file) {
+        if (in_array($file, $ignored)) continue;
+        $files[$file] = filemtime($dir . '/' . $file);
+    }
 
-  // Set opsi umum untuk cURL
-  curl_setopt($curl, CURLOPT_URL, $url);
-  curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($curl, CURLOPT_HTTPHEADER, [
-      'Content-Type: application/json',
-  ]);
+    arsort($files);
+    $files = array_keys($files);
 
-  // Eksekusi permintaan cURL dan ambil responnya
-  $result = curl_exec($curl);
-
-  // Cek jika ada kesalahan
-  if (curl_errno($curl)) {
-      echo 'Curl error: ' . curl_error($curl);
-  }
-
-  // Tutup sesi cURL
-  curl_close($curl);
-
-  return $result;
+    return $files;
 }
 
-$datas = callAPI('GET', 'http://127.0.0.1:1221/folders', true);
-$datas = json_decode($datas, true);
-$datas = $datas['folders'];
-
-// var_dump($datas);
-// die;
+$dir = '../../new';
+$datas = scan_dir($dir);
 // $jumlah = count($datas);
 $i = 1;
 ?>
@@ -140,10 +116,10 @@ $i = 1;
                         </td>
                     </tr>
                     <?php 
-                      if($i == 110){
-                          break;  
-                      }
-                      $i++;
+                    $i++; 
+                      // if($i == 110){
+                      //     break;  
+                      // }
                     ?>
                 <?php endforeach ;  ?>
                 </form>

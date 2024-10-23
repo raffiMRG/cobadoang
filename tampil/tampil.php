@@ -4,7 +4,13 @@ require '../functions/functions.php';
 $id = $_GET["id"];
 $data = query("SELECT * FROM list3 WHERE id = $id")[0];
 $judul = $data["judul"];
-$gendres = explode(", ", $data["gendre"]);
+
+if($data["gendre"] == NULL){
+    $gendres[0] = "kosong";
+}else{
+    $gendres = explode(", ", $data["gendre"]);
+}
+
 // var_dump($gendre);
 // die;
 

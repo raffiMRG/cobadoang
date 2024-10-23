@@ -59,7 +59,7 @@ $datas = query("SELECT * FROM list3 ORDER BY id DESC LIMIT $awalData, $JumlahDat
             <a href="logout/logout.php">
                 <div class="logout">LOGOUT</div>
             </a>
-            <form action="" method="post">
+            <form action="search/search.php" method="post">
                 <input type="text" name="keyword" id="keyword" placeholder="cari..." required>
                 <button type="submit" class="submit">submit</button>
             </form>
