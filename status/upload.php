@@ -1,4 +1,13 @@
 <?php 
+
+require '../functions/loadEnv.php';
+loadEnv('../.env');
+$db_host = getenv('DB_HOST');
+$db_user = getenv('DB_USER');
+$db_pass = getenv('DB_PASS');
+$db_name = getenv('DB_NAME');
+// echo $db_name;
+
     if(isset($_POST["data"])){
         // var_dump($_POST["data"]);
     }else{
@@ -6,12 +15,13 @@
         die;
     }
 
-    $conn = mysqli_connect("localhost", "root", "", "manga");
+    $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     $files = $_POST["data"];
 
     function insert($keyword){
         global $conn;
-        $query = "INSERT INTO list3 VALUE ('', '$keyword', '', '', '', '', '')";
+        // $query = "INSERT INTO list3 VALUE ('', '$keyword', '', '', '', '', '')";
+        $query = "INSERT INTO list3 (judul) VALUE ('$keyword')";
         mysqli_query($conn, $query);
         echo mysqli_error($conn);
         return mysqli_affected_rows($conn);

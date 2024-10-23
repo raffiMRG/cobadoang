@@ -1,0 +1,7 @@
+example 
+DB_HOST=192.168.18.25
+DB_PORT=3306
+DB_USER=username
+DB_PASS=password
+DB_NAME=manga
+BASEURL=192.168.18.25/web/

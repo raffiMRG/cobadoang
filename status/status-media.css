@@ -1,0 +1,45 @@
+@media (max-width: 720px){
+  .containerTable{
+    width: 90%;
+  }
+
+  /* =============== */
+  
+  .navbar{
+    justify-content: space-around;
+  }
+
+  .nav{
+    background-color: rgba(43, 45, 48, 0.945);
+    position: absolute;
+    width: 100%;
+    height: 35vh;
+    margin-left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    transition: 0.2s ease-in;
+    top: -35vh;
+  }
+
+  .loading2{
+      top: 28vh !important;
+  }
+
+  .active{
+      top: 0;
+  }
+
+  a#hamburger{
+      display: flex;
+      margin-right: 10px;
+  }
+
+  button{
+    height: 5vh;
+    width: 70vw;
+    margin: 0 auto;
+    border-radius: 30px;
+    font-size: 18px;
+  }
+}

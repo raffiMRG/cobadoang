@@ -1,12 +1,4 @@
 <?php 
-require '../functions/loadEnv.php';
-loadEnv('../.env');
-$db_host = getenv('DB_HOST');
-$db_user = getenv('DB_USER');
-$db_pass = getenv('DB_PASS');
-$db_name = getenv('DB_NAME');
-// echo $db_name;
-
 session_start();
 
 if(!isset($_SESSION["login"])){
@@ -16,7 +8,7 @@ if(!isset($_SESSION["login"])){
 
 // =====================================
 // ============ SET PROPERTY & MTHOD ===============
-$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+$conn = mysqli_connect("localhost", "root", "", "manga");
 
 function select($keyword){
     // var_dump($keyword);

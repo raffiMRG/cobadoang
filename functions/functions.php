@@ -1,5 +1,18 @@
 <?php 
-$conn = mysqli_connect('localhost', 'root', '', 'manga');
+require 'loadEnv.php';
+
+// loadEnv(__DIR__ . '/.env');
+
+if(loadEnv('.env') == -1){
+  loadEnv('../.env');
+}
+$db_host = getenv('DB_HOST');
+$db_user = getenv('DB_USER');
+$db_pass = getenv('DB_PASS');
+$db_name = getenv('DB_NAME');
+// echo $db_name;
+
+$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
 function registrasi($data){
     global $conn;
@@ -29,7 +42,7 @@ function registrasi($data){
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     // tambah user baru ke database
-    mysqli_query($conn, "INSERT INTO akun VALUE ('', '$username', '$password','')");
+    mysqli_query($conn, "INSERT INTO akun (username, password, hakAkses) VALUE ('$username', '$password','')");
 
     return mysqli_affected_rows($conn);
 }
@@ -65,7 +78,8 @@ function tambah($data){
         $judul = str_replace("&", "\&", $judul);
     }
 
-    $query = "INSERT INTO list3 VALUE ('', '$judul', '', '','$gendre','$artis','$group')";
+    // $query = "INSERT INTO list3 VALUE ('', '$judul', '', '','$gendre','$artis','$group')";
+    $query = "INSERT INTO list3 (judul) VALUE ('$judul')";
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
